@@ -1,0 +1,79 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="page">
+  <div class="row">
+    <div class="column">
+      <h3 class="title">Listado de Pokemon</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <div>
+        <form class="nosubmit" [formGroup]="searchForm">
+          <input class="nosubmit"
+                 type="search"
+                 formControlName="name"
+                 placeholder="Buscar">
+        </form>
+      </div>
+    </div>
+    <div class="column">
+      <div class="align-right px-15">
+        <button (click)="addPokemon()" class="btn"><i class="fa fa-plus"></i> Nuevo</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <table class="content-table">
+        <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Imagen</th>
+          <th>Ataque</th>
+          <th>Defensa</th>
+          <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngIf="pokemons$ | async as pokemons; else loading">
+          <ng-container *ngIf="pokemons.length; else noItems">
+            <tr *ngFor="let pokemon of pokemons">
+              <td>{{pokemon.name}}</td>
+              <td>
+                <img width="50px" src="{{pokemon.imageUrl}}" [alt]="pokemon.name">
+              </td>
+              <td>{{pokemon.attack}}</td>
+              <td>{{pokemon.defense}}</td>
+              <td>
+                <button (click)="editPokemon(pokemon)" type="button" class="icon-btn"><i class="fa fa-edit"></i></button>
+                <button (click)="deletePokemon(pokemon.id)" type="button" class="icon-btn"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-template #noItems>
+            <tr>
+              <td colspan="5" class="text-center">No existen pokemones</td>
+            </tr>
+          </ng-template>
+        </ng-container>
+        <ng-template #loading>
+          <tr>
+            <td colspan="5" class="text-center">Cargando...</td>
+          </tr>
+        </ng-template>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <app-pokemon-form *ngIf="showCreateUpdateForm"
+                        [pokemon]="pokemon"
+                        (cancelForm)="closeForm()"
+                        (submit)="submitForm($event)"></app-pokemon-form>
+    </div>
+  </div>
+</div>
+

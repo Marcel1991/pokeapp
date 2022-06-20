@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  margin: 0;
+}
+
+.page {
+  margin: 15px 90px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+
+.blue-column {
+  background-color: blue;
+  height: 100px;
+}
+
+.green-column {
+  background-color: green;
+  height: 100px;
+}
+
+.title {
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.align-right {
+  text-align: right;
+}
+.px-15{
+  padding: 0 15px;
+}
+.py-15{
+  padding: 15px 0;
+}
+
+.mx-15{
+  margin: 0 15px;
+}
+
+.my-15{
+  margin: 15px 0;
+}
+
+.pb-24 {
+  padding-bottom: 24px;
+}
+
+.text-center {
+  text-align: center;
+}
+.bold {
+  font-weight: bold;
+}
+
+@media screen and (min-width: 800px) {
+  .column {
+    flex: 1
+  }
+
+  .double-column {
+    flex: 2
+  }
+}

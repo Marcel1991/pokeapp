@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="row">
+    <div class="column text-center">
+      <h3 *ngIf="!pokemon.id" class="title">Nuevo pokemon</h3>
+      <h3 *ngIf="pokemon.id" class="title">Actualizar pokemon</h3>
+    </div>
+  </div>
+  <div class="row">
+    <form [formGroup]="form" class="row">
+      <div class="column px-15">
+        <div class="field pb-24">
+          <label for="name">Nombre:</label>
+          <input id="name" type="text" name="name" formControlName="name">
+        </div>
+        <div class="field pb-24">
+          <label for="imageUrl">Imagen: </label>
+          <input id="imageUrl" type="text" name="imageUrl" formControlName="imageUrl" PlaceHolder="url">
+        </div>
+      </div>
+      <div class="column px-15">
+        <div class="field pb-24 slidecontainer">
+          <label for="attack">Ataque ({{attack?.value}}): </label>
+          <span class="px-15">{{sliderMin}}</span>
+          <input type="range"
+                 [min]="sliderMin"
+                 [max]="sliderMax"
+                 value="50"
+                 class="slider"
+                 formControlName="attack"
+                 id="attack">
+          <span class="px-15">{{sliderMax}}</span>
+        </div>
+        <div class="field pb-24 slidecontainer">
+          <label for="defense">Defensa ({{defense?.value}}): </label>
+          <span class="px-15">{{sliderMin}}</span>
+          <input type="range"
+                 [min]="sliderMin"
+                 [max]="sliderMax"
+                 value="50"
+                 class="slider"
+                 formControlName="defense"
+                 id="defense">
+          <span class="px-15">{{sliderMax}}</span>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="column text-center py-15">
+      <div class="px-15">
+        <button (click)="cancel()" class="btn mx-15 btn-outlined cancel"><i class="fa fa-xmark"></i> Cancelar</button>
+        <button (click)="save()" class="btn mx-15" [disabled]="form.invalid"><i class="fa fa-save"></i> Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
