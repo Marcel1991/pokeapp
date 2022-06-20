@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="column px-15">
-        <div class="field pb-24 slidecontainer">
+        <div class="field pb-24 slidecontainer align-right">
           <label for="attack">Ataque ({{attack?.value}}): </label>
           <span class="px-15">{{sliderMin}}</span>
           <input type="range"
@@ -28,9 +28,9 @@
                  class="slider"
                  formControlName="attack"
                  id="attack">
-          <span class="px-15">{{sliderMax}}</span>
+          <span class="px-5">{{sliderMax}}</span>
         </div>
-        <div class="field pb-24 slidecontainer">
+        <div class="field pb-24 slidecontainer align-right">
           <label for="defense">Defensa ({{defense?.value}}): </label>
           <span class="px-15">{{sliderMin}}</span>
           <input type="range"
@@ -40,7 +40,7 @@
                  class="slider"
                  formControlName="defense"
                  id="defense">
-          <span class="px-15">{{sliderMax}}</span>
+          <span class="px-5">{{sliderMax}}</span>
         </div>
       </div>
     </form>
@@ -48,8 +48,8 @@
   <div class="row">
     <div class="column text-center py-15">
       <div class="px-15">
-        <button (click)="cancel()" class="btn mx-15 btn-outlined cancel"><i class="fa fa-xmark"></i> Cancelar</button>
         <button (click)="save()" class="btn mx-15" [disabled]="form.invalid"><i class="fa fa-save"></i> Guardar</button>
+        <button (click)="cancel()" class="btn mx-15 cancel"><i class="fa fa-xmark"></i> Cancelar</button>
       </div>
     </div>
   </div>

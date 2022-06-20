@@ -28,11 +28,11 @@
       <table class="content-table">
         <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Imagen</th>
-          <th>Ataque</th>
-          <th>Defensa</th>
-          <th>Acciones</th>
+          <th class="text-center">Nombre</th>
+          <th class="text-center">Imagen</th>
+          <th class="text-center">Ataque</th>
+          <th class="text-center">Defensa</th>
+          <th class="text-center">Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -40,12 +40,12 @@
           <ng-container *ngIf="pokemons.length; else noItems">
             <tr *ngFor="let pokemon of pokemons">
               <td>{{pokemon.name}}</td>
-              <td>
+              <td class="text-center">
                 <img width="50px" src="{{pokemon.imageUrl}}" [alt]="pokemon.name">
               </td>
               <td>{{pokemon.attack}}</td>
               <td>{{pokemon.defense}}</td>
-              <td>
+              <td class="text-center">
                 <button (click)="editPokemon(pokemon)" type="button" class="icon-btn"><i class="fa fa-edit"></i></button>
                 <button (click)="deletePokemon(pokemon.id)" type="button" class="icon-btn"><i class="fa fa-trash"></i></button>
               </td>
